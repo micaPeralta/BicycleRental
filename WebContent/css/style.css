@@ -1,0 +1,38 @@
+/* YOUR CUSTOM STYLES */
+.container{
+  width: auto;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.navbar {
+    background-color: #05191F;
+}
+.fondo-celeste{
+   background-color: #D2D7D9;
+  /**background: url("/img/portada.jpg")no-repeat center center fixed;*/
+}
+
+.fondo-blanco{
+  background-color: white;
+}
+
+.size-50{
+  height:80%;
+  width: 50%;
+}
+
+.text-white{
+  color: red;
+}
+
+.padding-top-2em{
+  padding-top: 2em;
+}
+footer.page-footer{
+  margin-top: 0px;
+}
+
+#cover{
+
+  /*margin-bottom: -30px;*/
+}

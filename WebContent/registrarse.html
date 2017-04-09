@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Registrarse | LaPlataEnBici/title </title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Template styles -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-toggleable-md navbar-dark scrolling-navbar" >
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <strong>LaPlataEnBici</strong>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.jsp" >Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--/.Navbar-->
+    <!-- Main container-->
+    <div class="container">
+
+        <div class="divider-new">
+            <h2 class="h2-responsive wow bounceIn">Regístrate</h2>
+        </div>
+
+        <form class="" action="Registrarse" method="get">
+
+          <div class="row">
+
+                <div class="md-form col-6">
+                  <input type="text" name="nombre" class="form-control" >
+                  <label for="nombre">Nombre</label>
+                </div>
+
+
+              <div class="md-form col-6">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" class="form-control" >
+              </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="md-form col-6">
+              <label for="dni">DNI</label>
+              <input type="number" name="dni" aria-describedby="dniHelp" class="form-control" >
+              <small id="dniHelp" class="form-text text-muted">Solo números</small>
+            </div>
+
+            <div class="md-form col-6">
+              <label for="domicilio">Domicilio</label>
+              <input type="text" name="domicilio" class="form-control" >
+            </div>
+        </div>
+
+        <div class="row">
+
+          <div class="md-form col-6">
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <div class='input-group date' id='datepicker'>
+               <input type='text' class="form-control" name="fecha_nacimiento" class="form-control" />
+               <span class="input-group-addon">
+                 <i class="fa fa-calendar" aria-hidden="true"></i>
+
+               </span>
+           </div>
+          </div>
+
+          <div class="md-form col-6">
+             <label for="email">Correo electrónico</label>
+             <input type="email" class="form-control" id="email" aria-describedby="emailHelp"  >
+             <small id="emailHelp" class="form-text text-muted">examlple@mail.com</small>
+
+          </div>
+
+
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+              <label for="" style="display:block;">Sexo</label>
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary">
+                  <input type="radio" name="sexo"  value="Femenino"> Femenino
+                </label>
+                <label class="btn btn-primary">
+                  <input type="radio" name="sexo"  value="Masculino"> Masculino
+                </label>
+              </div>
+          </div>
+
+             <div class="md-form col-6">
+	            <label for="password">Password</label>
+	            <input type="password" name="password" class="form-control">
+          	</div>
+
+        </div>
+
+          <button class="btn btn-primary pull-right">Enviar</button>
+
+        </form><br>
+        </div>
+
+
+        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+        <script type="text/javascript" src="js/moment.min.js"></script>
+
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="js/tether.min.js"></script>
+
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.es.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.min.css" />
+
+         <script type="text/javascript">
+
+            $('#datepicker').datepicker({
+              autoclose:true,
+              format: 'dd/mm/yyyy',
+              language: 'es',
+              startView: "years"
+            });
+         </script>
+         <!-- MDB core JavaScript -->
+         <script type="text/javascript" src="js/mdb.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html  lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home| LaPlataEnBici</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- DataTable styles -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Template styles -->
+
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-toggleable-md navbar-dark scrolling-navbar" >
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <strong>LaPlataEnBici</strong>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!--/.Navbar-->
+    <!-- Main container-->
+    <div class="container fondo-blanco " >
+
+        <div class="divider-new">
+            <h2 class="h2-responsive wow bounceIn">Ubicacion estaciones</h2>
+        </div>
+
+        <div id="map-container" class="z-depth-1 wow fadeInUp" style="height:400px;"></div>
+        <br>
+
+        <table class="table" id="table">
+          <thead class="card-header">
+            <tr>
+              <th>Nombre</th>
+              <th>Ubicación</th>
+              <th>Cant de bicicletas</th>
+              <th>Estado</th>
+              <th>Estacionamientos libres</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Plaza San Martin</td>
+              <td> 7 y 50</td>
+              <td>23</td>
+              <td>Operativa</td>
+              <td>6</td>
+              <td>
+                <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
+                <button type="button" name="button" class="btn default-color-dark">Devolver</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Plaza San Martin</td>
+              <td> 7 y 50</td>
+              <td>23</td>
+              <td>Operativa</td>
+              <td>6</td>
+              <td>
+                <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
+                <button type="button" name="button" class="btn default-color-dark">Devolver</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Parque Savedra </td>
+              <td> 7 y 50</td>
+              <td>23</td>
+              <td>Operativa</td>
+              <td>6</td>
+              <td>
+                <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
+                <button type="button" name="button" class="btn default-color-dark">Devolver</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Plaza Moreno</td>
+              <td> 7 y 50</td>
+              <td>23</td>
+              <td>Operativa</td>
+              <td>6</td>
+              <td>
+                <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
+                <button type="button" name="button" class="btn default-color-dark">Devolver</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+
+    </div>
+
+        <!--Footer-->
+        <footer class="page-footer center-on-small-only">
+
+            <!--Call to action-->
+            <div class="call-to-action">
+                <h4>Material Design for Bootstrap</h4>
+                <ul>
+                    <li>
+                        <h5>Get our UI KIT for free</h5></li>
+                    <li><a target="_blank" href="http://mdbootstrap.com/getting-started/" rel="nofollow" class="btn btn-info">Sign up!</a></li>
+                    <li><a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" rel="nofollow" class="btn btn-default">Learn more</a></li>
+                </ul>
+            </div>
+            <!--/.Call to action-->
+
+            <!--Copyright-->
+            <div class="footer-copyright">
+                <div class="container-fluid">
+                    © 2015 Copyright: <a href="http://www.MDBootstrap.com" rel="nofollow"> MDBootstrap.com </a>
+
+                </div>
+            </div>
+            <!--/.Copyright-->
+
+        </footer>
+
+       <!-- JQuery -->
+       <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+       <!-- Bootstrap tooltips -->
+       <script type="text/javascript" src="js/tether.min.js"></script>
+
+       <!-- Bootstrap core JavaScript -->
+       <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+       <!-- MDB core JavaScript -->
+       <script type="text/javascript" src="js/mdb.min.js"></script>
+
+       <!--Google Maps-->
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJp4VXhzxvKy4_l_Psy61CQQE2Rjsa004&callback=initMap"  async defer></script>
+       <script src="js/mymap.js"></script>
+
+       <!-- DataTable-->
+       <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+       <!--Script config DataTable -->
+       <script type="text/javascript" charset="utf-8" src="js/mydatatable.js">	</script>
+
+  </body>
+</html>
