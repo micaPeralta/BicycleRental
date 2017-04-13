@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home| LaPlataEnBici</title>
+    <title>Editar estación| LaPlataEnBici</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
@@ -34,9 +34,10 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarNav1">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-						<a href="HomeUsr" class="nav-link"> Home</a>
+                    <li class="nav-item ">
+						<a href="HomeAdmin" class="nav-link"> Home</a>
                     </li>
+                   
                 </ul>
 
             </div>
@@ -44,77 +45,47 @@
     </nav>
     <!--/.Navbar-->
     <!-- Main container-->
-    <img src="img/city-cover.jpg" class="img-fluid z-depth-2" alt="">
-    <div class="container padding-top-2em" >
-     		
-     		 <h3 class="h2-responsive wow bounceIn">Estaciones</h3>
-        	 <hr>
-        	 
-           <table class="table table-hover" id="table">
-             <thead class="card-header">
-               <tr>
-                 <th>Nombre</th>
-                 <th>Ubicación</th>
-                 <th>Cant de bicicletas</th>
-                 <th>Estado</th>
-                 <th>Estacionamientos libres</th>
-                 <th>Opciones</th>
-               </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td>Plaza San Martin</td>
-                 <td> 7 y 50</td>
-                 <td>23</td>
-                 <td>Operativa</td>
-                 <td>6</td>
-                 <td>
-                   <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
-                   <button type="button" name="button" class="btn default-color-dark">Devolver</button>
-                 </td>
-               </tr>
-
-               <tr>
-                 <td>Plaza San Martin</td>
-                 <td> 7 y 50</td>
-                 <td>23</td>
-                 <td>Cerrada</td>
-                 <td>6</td>
-                 <td>
-                   <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
-                   <button type="button" name="button" class="btn default-color-dark">Devolver</button>
-                 </td>
-               </tr>
-
-               <tr>
-                 <td>Parque Savedra </td>
-                 <td> 7 y 50</td>
-                 <td>23</td>
-                 <td>Operativa</td>
-                 <td>6</td>
-                 <td>
-                   <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
-                   <button type="button" name="button" class="btn default-color-dark">Devolver</button>
-                 </td>
-               </tr>
-
-               <tr>
-                 <td>Plaza Moreno</td>
-                 <td> 7 y 50</td>
-                 <td>23</td>
-                 <td>En construccion</td>
-                 <td>6</td>
-                 <td>
-                   <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
-                   <button type="button" name="button" class="btn default-color-dark">Devolver</button>
-                 </td>
-               </tr>
-             </tbody>
-
-
-           </table>
-
-      </div>
+   
+    <div class="container " >
+    	
+    	<div class="divider-new">
+            <h2 class="h2-responsive wow bounceIn">Editar estación</h2>
+        </div>
+        
+	 	<form>
+                  <div class="md-form ">
+                  	 <label>Nombre</label>
+                 	 <input type="text" class="form-control">
+                  </div>
+               
+                 <div class="md-form ">
+                 	<label>Ubicación</label>
+                 	<input type="text" class="form-control">
+                 </div>
+                 	
+                 	
+                 <div class="md-form ">
+                 	<label>Cant de bicicletas</label>
+                 	<input type="number" class="form-control">
+                 </div>
+                 	
+                 <div class="md-form ">
+                 	<label>Lugares libres</label>
+                 	<input type="text" class="form-control">
+                 </div>
+                 	
+                 <div class="md-form ">
+                 	<label>Estado</label>
+                 	<input type="text" class="form-control"> 
+                 </div>
+                 	
+                 	
+                 	<input type="submit" class="btn primary-color-dark btn-sm pull-right" value="Enviar">
+                 	<br><br>
+                 </form>
+               
+     
+    </div>
       <!--Footer-->
       <footer class="page-footer center-on-small-only">
 

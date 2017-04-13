@@ -30,12 +30,12 @@
             <div class="collapse navbar-collapse" id="navbarNav1">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.jsp" >Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html" >Home <span class="sr-only">(current)</span></a>
                     </li>
 
                 </ul>
             </div>
-        </div>
+        </div><a href="Logout" class="nav-link pull-right">Salir</a>
     </nav>
     <!--/.Navbar-->
     <!-- Main container-->
@@ -45,7 +45,7 @@
             <h2 class="h2-responsive wow bounceIn">Regístrate</h2>
         </div>
 
-        <form class="" action="Registrarse" method="get">
+        <form class="" action="Registrarse" method="post">
 
           <div class="row">
 
@@ -79,12 +79,11 @@
         <div class="row">
 
           <div class="md-form col-6">
-            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+           
             <div class='input-group date' id='datepicker'>
-               <input type='text' class="form-control" name="fecha_nacimiento" class="form-control" />
+               <input  type="text" id="date-picker-example" placeholder="Fecha de nacimiento" name="fecha_nacimiento" class="form-control datepicker">
                <span class="input-group-addon">
                  <i class="fa fa-calendar" aria-hidden="true"></i>
-
                </span>
            </div>
           </div>
@@ -113,7 +112,7 @@
           </div>
 
              <div class="md-form col-6">
-	            <label for="password">Password</label>
+	            <label for="password">Contraseña</label>
 	            <input type="password" name="password" class="form-control">
           	</div>
 
@@ -141,7 +140,7 @@
 
          <script type="text/javascript">
 
-            $('#datepicker').datepicker({
+            $('.datepicker').datepicker({
               autoclose:true,
               format: 'dd/mm/yyyy',
               language: 'es',

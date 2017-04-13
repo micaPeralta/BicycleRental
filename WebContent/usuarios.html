@@ -14,7 +14,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+	
+	    <!-- DataTable styles -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+    
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
 
@@ -38,27 +41,89 @@
             <div class="collapse navbar-collapse" id="navbarNav1">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link">Estaciones<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="HomeAdmin">Estaciones<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Bicicletas</a>
+                        <a class="nav-link" href="Bicicletas">Bicicletas</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link">Usuarios</a>
+                        <a class="nav-link" href="Usuarios">Usuarios</a>
                     </li>
                 </ul>
 
             </div>
         </div>
+        <a href="Logout" class="nav-link pull-right">Salir</a>
     </nav>
     <!--/.Navbar-->
-
+		
         <img src="img/users-cover.jpeg" class="img-fluid z-depth-2" alt="">
+		
+		
+		<!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title w-100" id="myModalLabel">Crear estación</h4>
+                </div>
+                <!--Body-->
+                <div class="modal-body container">
+                  <table class="table">
+                  	<tr>
+                  		<th>Nombre</th>
+                  		<td>Martin jonatan</td>
+                  	</tr>
+                  	<tr>
+                  		<th>Apelllido</th>
+                  		<td>Ramirez</td>
+                  	</tr>
+                  	<tr>
+                  		<th>Sexo</th>
+                  		<td>Masculino</td>
+                  	</tr>
+                  	<tr>
+                  		<th>DNI</th>
+                  		<td>23452345</td>
+                  	</tr>
+                  	<tr>
+                  		<th>Email</th>
+                  		<td>martin@gmail.com.ar</td>
+                  	</tr>
+                  	<tr>
+                  		<th>Dirección</th>
+                  		<td>23 e/ 128 y 129</td>
+                  	</tr>
+                  	<tr>
+                  		<th>Fecha de nacimiento</th>
+                  		<td>12/12/1993</td>
+                 	</tr>
+                  	
+                  </table>
 
+                </div>
+                <!--Footer-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn primary-color-dark">Aceptar</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- /.Live preview-->
         <!-- Main container-->
-        <div class="container  padding-top-2em">
-
-             <table class="table">
+        <div class="container padding-top-2em" >
+	
+        	 <h3 class="h2-responsive wow bounceIn">Usuarios</h3>
+        	 <hr>
+        	 
+             <table class="table table-hover" id="table">
                <thead class="card-header">
                  <tr>
                    <th>Nombre</th>
@@ -78,8 +143,8 @@
                    <td>23 e/ 128 y 129</td>
                    <td>6</td>
                    <td>
-                     <button type="button" name="button" class="btn primary-color-dark waves-effect">Ver más</button>
-
+                   	<button type="button" name="button" class="btn primary-color-dark waves-effect" data-toggle="modal" data-target="#myModal">Ver más</button>
+                     
                       <div class="btn-group">
                           <button class="btn default-color-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inhabilitar</button>
 
@@ -100,8 +165,17 @@
                    <td>Operativa</td>
                    <td>6</td>
                    <td>
-                     <button type="button" name="button" class="btn primary-color-dark waves-effect">Retirar</button>
-                     <button type="button" name="button" class="btn default-color-dark waves-effect">Inhabilitar</button>
+                     <button type="button" name="button" class="btn primary-color-dark waves-effect">Ver mas</button>
+                     <div class="btn-group">
+                        <button class="btn default-color-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inhabilitar</button>
+
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Temporalmente</a>
+                              <a class="dropdown-item" href="#">Definitivamente</a>
+
+                          </div>
+                      </div>
+                    
                   </td>
                  </tr>
 
@@ -112,8 +186,17 @@
                    <td>Operativa</td>
                    <td>6</td>
                    <td>
-                     <button type="button" name="button" class="btn primary-color-dark waves-effect">Retirar</button>
-                     <button type="button" name="button" class="btn default-color-dark waves-effect">Inhabilitar</button>
+                     <button type="button" name="button" class="btn primary-color-dark waves-effect" data-toggle="modal" data-target="#modal">Ver mas</button>
+                     <div class="btn-group">
+                          <button class="btn default-color-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inhabilitar</button>
+
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Temporalmente</a>
+                              <a class="dropdown-item" href="#">Definitivamente</a>
+
+                          </div>
+                      </div>
+                    
                    </td>
                  </tr>
 
@@ -124,8 +207,16 @@
                    <td>Operativa</td>
                    <td>6</td>
                    <td>
-                     <button type="button" name="button" class="btn primary-color-dark waves-effect">Retirar</button>
-                     <button type="button" name="button" class="btn default-color-dark waves-effect">Inhabilitar</button>
+                     <button type="button" name="button" class="btn primary-color-dark waves-effect">Ver mas</button>
+                     <div class="btn-group">
+                          <button class="btn default-color-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inhabilitar</button>
+
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Temporalmente</a>
+                              <a class="dropdown-item" href="#">Definitivamente</a>
+
+                          </div>
+                      </div>
                    </td>
                  </tr>
                </tbody>
@@ -136,45 +227,56 @@
         <!--/ Main container-->
 
 
+  <!--Footer-->
+      <footer class="page-footer center-on-small-only">
 
-    <!--Footer-->
-    <footer class="page-footer center-on-small-only">
-        <hr>
-        <!--Call to action-->
-        <div class="call-to-action">
-            <h4>Material Design for Bootstrap</h4>
-            <ul>
-                <li>
-                    <h5>Get our UI KIT for free</h5></li>
-                <li><a target="_blank" href="http://mdbootstrap.com/getting-started/" rel="nofollow" class="btn btn-info">Sign up!</a></li>
-                <li><a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" rel="nofollow" class="btn btn-default">Learn more</a></li>
-            </ul>
-        </div>
-        <!--/.Call to action-->
+          <!--Call to action-->
+          <div class="call-to-action">
+              <h4>Contacto</h4>
 
-        <!--Copyright-->
-        <div class="footer-copyright">
-            <div class="container-fluid">
-                © 2015 Copyright: <a href="http://www.MDBootstrap.com" rel="nofollow"> MDBootstrap.com </a>
+                  <ul class="text-center">
+                      <li class="wow fadeInUp" data-wow-delay="0.2s"><i class="fa fa-map-marker teal-text"></i>
+                          <p>La Plata, Argentina</p>
+                      </li>
 
-            </div>
-        </div>
-        <!--/.Copyright-->
+                      <li class="wow fadeInUp" data-wow-delay="0.3s"><i class="fa fa-phone teal-text"></i>
+                          <p>+ 01 234 567 89</p>
+                      </li>
 
-      </footer>
-    <!--/.Footer-->
+                      <li class="wow fadeInUp" data-wow-delay="0.4s"><i class="fa fa-envelope teal-text"></i>
+                          <p>laplataenbici@gmail.com.ar</p>
+                      </li>
+                  </ul>
+
+          </div>
+          <!--/.Call to action-->
+
+          <!--Copyright-->
+          <div class="footer-copyright">
+              <div class="container-fluid">
+                  © 2017 Copyright:  laplataenbici.com
+
+              </div>
+          </div>
+          <!--/.Copyright-->
+       </footer>
 
     <!-- SCRIPTS -->
 
-      <!-- JQuery -->
-      <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-
-
-      <!-- Bootstrap core JavaScript -->
-      <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-      <!-- MDB core JavaScript -->
-      <script type="text/javascript" src="js/mdb.min.js"></script>
+   
+	    <!-- JQuery -->
+	    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+	      <!-- MDB core JavaScript -->
+     	 <script type="text/javascript" src="js/mdb.min.js"></script>
+	    
+	     <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        
+	    <!-- DataTable-->
+	    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+	   
+	    <!--Script config DataTable -->
+	    <script type="text/javascript" charset="utf-8" src="js/mydatatable.js">	</script>
 
 
 

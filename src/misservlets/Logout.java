@@ -5,17 +5,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Registrarse
+ * Servlet implementation class Logout
  */
-public class Registrarse extends HttpServlet {
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Registrarse() {
+    public Logout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -25,7 +26,9 @@ public class Registrarse extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("registrarse.html").forward(request,response);
+		HttpSession miSesion = request.getSession();
+		miSesion.invalidate();
+		response.sendRedirect("index.html");
 	}
 
 	/**
@@ -33,18 +36,7 @@ public class Registrarse extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email=request.getParameter("email");
-		String password= request.getParameter("password");
-		String nombre= request.getParameter("nombre");
-		String domicilio= request.getParameter("domicilio");
-		String apellido= request.getParameter("apellido");
-		String dni= request.getParameter("dni");
-		String fecha_nacimiento= request.getParameter("fecha_nacimiento");
-		String sexo= request.getParameter("sexo");
-		
-		/* Registrar al usuario en la base de datos */
-		response.sendRedirect("index.html");
+		doGet(request, response);
 	}
-	
 
 }

@@ -49,4 +49,34 @@
     <servlet-name>Registrarse</servlet-name>
     <url-pattern>/Registrarse</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Usuarios</display-name>
+    <servlet-name>Usuarios</servlet-name>
+    <servlet-class>misservlets.Usuarios</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Usuarios</servlet-name>
+    <url-pattern>/Usuarios</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Bicicletas</display-name>
+    <servlet-name>Bicicletas</servlet-name>
+    <servlet-class>misservlets.Bicicletas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Bicicletas</servlet-name>
+    <url-pattern>/Bicicletas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>misservlets.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
 </web-app>

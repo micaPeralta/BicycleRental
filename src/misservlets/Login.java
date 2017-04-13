@@ -45,23 +45,15 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Obtengo los inputs del formlario
+				//Obtengo los inputs del formlario
 				String email=request.getParameter("email");
 				String password= request.getParameter("password");
-			/*	String nombre= request.getParameter("nombre");
-				String domicilio= request.getParameter("domicilio");
-				String apellido= request.getParameter("apellido");
-				String dni= request.getParameter("dni");
-				String fecha_nacimiento= request.getParameter("fecha_nacimiento");
-				String sexo= request.getParameter("sexo");*/
-				System.out.println(email);
-				System.out.println(logins.get(email).equals(password) );
 				
 				if( (logins.get(email) != null ) &&  (logins.get(email).equals(password) )){
 					System.out.println("Logeada exitosamente! ");
 					HttpSession miSesion = request.getSession(true);
 					miSesion.setAttribute("nombre",email);
-					if (email== "user")	response.sendRedirect("HomeUsr");
+					if (email.equals("user"))	response.sendRedirect("HomeUsr");
 					else 	response.sendRedirect("HomeAdmin");
 				
 				}
