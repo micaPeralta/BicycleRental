@@ -14,10 +14,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-	
+
 	    <!-- DataTable styles -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
-    
+
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
 
@@ -56,10 +56,10 @@
         <a href="Logout" class="nav-link pull-right">Salir</a>
     </nav>
     <!--/.Navbar-->
-		
+
         <img src="img/users-cover.jpeg" class="img-fluid z-depth-2" alt="">
-		
-		
+
+
 		<!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -73,7 +73,7 @@
                     <h4 class="modal-title w-100" id="myModalLabel">Crear estación</h4>
                 </div>
                 <!--Body-->
-                <div class="modal-body container">
+                <div class="modal-body ">
                   <table class="table">
                   	<tr>
                   		<th>Nombre</th>
@@ -102,11 +102,12 @@
                   	<tr>
                   		<th>Fecha de nacimiento</th>
                   		<td>12/12/1993</td>
-                 	</tr>
-                  	
+                 	  </tr>
+
                   </table>
 
                 </div>
+                <!--/Body-->
                 <!--Footer-->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
@@ -119,10 +120,10 @@
     <!-- /.Live preview-->
         <!-- Main container-->
         <div class="container padding-top-2em" >
-	
+	         <button type="button" name="button" class="btn primary-color-dark waves-effect pull-right" data-toggle="modal" data-target="#myModal">Crear</button>
         	 <h3 class="h2-responsive wow bounceIn">Usuarios</h3>
         	 <hr>
-        	 
+
              <table class="table table-hover" id="table">
                <thead class="card-header">
                  <tr>
@@ -144,7 +145,7 @@
                    <td>6</td>
                    <td>
                    	<button type="button" name="button" class="btn primary-color-dark waves-effect" data-toggle="modal" data-target="#myModal">Ver más</button>
-                     
+
                       <div class="btn-group">
                           <button class="btn default-color-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inhabilitar</button>
 
@@ -175,7 +176,7 @@
 
                           </div>
                       </div>
-                    
+
                   </td>
                  </tr>
 
@@ -196,7 +197,7 @@
 
                           </div>
                       </div>
-                    
+
                    </td>
                  </tr>
 
@@ -263,18 +264,18 @@
 
     <!-- SCRIPTS -->
 
-   
+
 	    <!-- JQuery -->
 	    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 	      <!-- MDB core JavaScript -->
      	 <script type="text/javascript" src="js/mdb.min.js"></script>
-	    
+
 	     <!-- Bootstrap core JavaScript -->
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        
+
 	    <!-- DataTable-->
 	    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
-	   
+
 	    <!--Script config DataTable -->
 	    <script type="text/javascript" charset="utf-8" src="js/mydatatable.js">	</script>
 
