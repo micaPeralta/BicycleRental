@@ -79,4 +79,14 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditarBicicleta</display-name>
+    <servlet-name>EditarBicicleta</servlet-name>
+    <servlet-class>misservlets.EditarBicicleta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditarBicicleta</servlet-name>
+    <url-pattern>/EditarBicicleta</url-pattern>
+  </servlet-mapping>
 </web-app>

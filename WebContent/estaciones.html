@@ -13,7 +13,7 @@
 
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
-    
+
         <!-- DataTable styles -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
 
@@ -46,10 +46,10 @@
     <!-- Main container-->
     <img src="img/city-cover.jpg" class="img-fluid z-depth-2" alt="">
     <div class="container padding-top-2em" >
-     		
+
      		 <h3 class="h2-responsive wow bounceIn">Estaciones</h3>
         	 <hr>
-        	 
+
            <table class="table table-hover" id="table">
              <thead class="card-header">
                <tr>
@@ -57,7 +57,7 @@
                  <th>Ubicación</th>
                  <th>Cant de bicicletas</th>
                  <th>Estado</th>
-                 <th>Estacionamientos libres</th>
+                 <th>Est. libres</th>
                  <th>Opciones</th>
                </tr>
              </thead>
@@ -69,8 +69,7 @@
                  <td>Operativa</td>
                  <td>6</td>
                  <td>
-                   <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
-                   <button type="button" name="button" class="btn default-color-dark">Devolver</button>
+                   <button type="button" name="button" onclick=confirm()  class="btn primary-color-dark">Retirar</button>
                  </td>
                </tr>
 
@@ -81,8 +80,7 @@
                  <td>Cerrada</td>
                  <td>6</td>
                  <td>
-                   <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
-                   <button type="button" name="button" class="btn default-color-dark">Devolver</button>
+                   <button type="button" name="button" onclick=confirm()  class="btn primary-color-dark">Retirar</button>
                  </td>
                </tr>
 
@@ -93,8 +91,7 @@
                  <td>Operativa</td>
                  <td>6</td>
                  <td>
-                   <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
-                   <button type="button" name="button" class="btn default-color-dark">Devolver</button>
+                   <button type="button" name="button" onclick=confirm()  class="btn primary-color-dark">Retirar</button>
                  </td>
                </tr>
 
@@ -105,8 +102,7 @@
                  <td>En construccion</td>
                  <td>6</td>
                  <td>
-                   <button type="button" name="button" class="btn primary-color-dark">Retirar</button>
-                   <button type="button" name="button" class="btn default-color-dark">Devolver</button>
+                   <button type="button" name="button" onclick=confirm() class="btn primary-color-dark">Retirar</button>
                  </td>
                </tr>
              </tbody>
@@ -159,14 +155,21 @@
 
        <!-- MDB core JavaScript -->
        <script type="text/javascript" src="js/mdb.min.js"></script>
-       
-	    
+
+
+
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+       <script type="text/javascript">
+       function confirm(){
+         bootbox.confirm("Se te asignó la bicicleta As123", function(result){ console.log('This was logged in the callback: ' + result); });
+
+       }
+       </script>
 	    <!-- DataTable-->
 	    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
 	    <!--Script config DataTable -->
 	    <script type="text/javascript" charset="utf-8" src="js/mydatatable.js">	</script>
-
-       
 
 
   </body>
