@@ -1,6 +1,11 @@
 package misservlets;
+import daos.EstacionDAOImp;
+import daos.FactoryDAO;
+import entities.Bicicleta;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +30,7 @@ public class Bicicletas extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	
 		request.getRequestDispatcher("bicicletas.html").forward(request,response);
 	
 	}

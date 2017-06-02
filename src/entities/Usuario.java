@@ -1,46 +1,60 @@
-package models;
+package entities;
+
+import javax.persistence.*;
 import java.util.*;
 
 /**
  *
  */
+@Entity
 public class Usuario {
-
-    /**
-     * Default constructor
-     */
-    public Usuario(Integer dni,
-    			   String apellido,
-    			   String nombre,
-    			   String domicilio,
-    			   Date fechaNacimiento,
-    			   String sexo,
-    			   String email,
-    			   String clave,String rol) {
-
-    	this.dni = dni;
-    	this.apellido = apellido;
-    	this.nombre = nombre;
-    	this.domicilio = domicilio;
-    	this.fechaNacimiento = fechaNacimiento;
-    	this.sexo = sexo;
-    	this.habilitado = true;
-    	this.email = email;
-    	this.clave = clave;
-    	this.rol = rol;
+	
+    public enum Rol{
+        COMUN, ADMIN
     }
-
+    @Id @GeneratedValue( strategy = GenerationType.AUTO) 
+    private Long id;
     private Integer dni;
     private String apellido;
     private String nombre;
     private String domicilio;
     private Date fechaNacimiento;
     private String sexo;
-    private boolean habilitado;
+    @Temporal(TemporalType.DATE)
+    private Date fechaInhabilitacion;
     private String email;
     private String clave;
-    private String rol= "comun";
-    private  HashSet<Bicicleta> bicicletas;
+    @Enumerated
+    private Rol rol;
+    @OneToMany
+    private  Set<Bicicleta> bicicletas;
+
+
+    /**
+    * Default constructor
+    */
+    public Usuario(){}
+
+    public Usuario(Integer dni,
+    String apellido,
+    String nombre,
+    String domicilio,
+    Date fechaNacimiento,
+    String sexo,
+    String email,
+    String clave,Rol rol) {
+
+      this.dni = dni;
+      this.apellido = apellido;
+      this.nombre = nombre;
+      this.domicilio = domicilio;
+      this.fechaNacimiento = fechaNacimiento;
+      this.sexo = sexo;
+      this.email = email;
+      this.clave = clave;
+      this.rol = rol;
+      this.fechaInhabilitacion= null;
+    }
 	/**
 	 * @return the dni
 	 */
@@ -117,14 +131,18 @@ public class Usuario {
 	 * @return the habilitado
 	 */
 	public boolean isHabilitado() {
-		return habilitado;
+		return fechaInhabilitacion == null;
 	}
 	/**
 	 * @param habilitado the habilitado to set
 	 */
-	public void setHabilitado(boolean habilitado) {
-		this.habilitado = habilitado;
+	public void setfechaInhabilitacion(Date fecha) {
+		this.fechaInhabilitacion = fecha;
 	}
+
+  public Date getfechaInhabilitacion() {
+    return this.fechaInhabilitacion;
+  }
 	/**
 	 * @return the email
 	 */
@@ -152,19 +170,19 @@ public class Usuario {
 	/**
 	 * @return the rol
 	 */
-	public String getRol() {
+	public Rol getRol() {
 		return rol;
 	}
 	/**
 	 * @param rol the rol to set
 	 */
-	public void setRol(String rol) {
+	public void setRol(Rol rol) {
 		this.rol = rol;
 	}
 	/**
 	 * @return the bicicletas
 	 */
-	public HashSet<Bicicleta> getBicicletas() {
+	public Set<Bicicleta> getBicicletas() {
 		return bicicletas;
 	}
 	/**

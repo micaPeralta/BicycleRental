@@ -1,29 +1,40 @@
-package models;
+package entities;
+
+import javax.persistence.*;
 import java.util.*;
 
-/**
- *
- */
+@Entity
 public class Estacion {
 
-    /**
-     * Default constructor
-     */
-    public Estacion(String nombre, String ubicacion,int capacidad,String estado) {
-    	this.nombre = nombre;
-    	this.ubicacion = ubicacion;
-    	this.capacidad = capacidad;
-    	this.estado = estado;
-    	this.bicicletas = new LinkedList<Bicicleta>();
+    public enum EstadoEstacion{
+      OPERATIVA, CERRADA, EN_CONTRUCCION
     }
-
-
+    @Id 
+    @GeneratedValue( strategy = GenerationType.AUTO) 
+    private Long id;
     private String nombre;
-    private String ubicacion;
     private int capacidad;
-    private String estado;
-    private LinkedList<Bicicleta> bicicletas;
+    @Enumerated
+    private EstadoEstacion estado;
+    @OneToMany(mappedBy="estacion")
+    private List<Bicicleta> bicicletas;
+    private String latitud;
+    private String longitud;
 
+    /**
+    * Default constructor
+    */
+
+    public Estacion(){}
+
+    public Estacion(String nombre,String longitud,String latitud,int capacidad, EstadoEstacion estado) {
+      this.nombre = nombre;
+      this.latitud = latitud;
+      this.longitud = longitud;
+      this.capacidad = capacidad;
+      this.estado = estado;
+      this.bicicletas = new LinkedList<Bicicleta>();
+    }
 
 
     /**
@@ -43,15 +54,19 @@ public class Estacion {
 	/**
 	 * @return the ubicacion
 	 */
-	public String getUbicacion() {
+	public String[] getUbicacion() {
+	    String[] ubicacion = new String[2];
+	    ubicacion[0]= this.latitud;
+	    ubicacion[1]= this.longitud;
 		return ubicacion;
 	}
 
 	/**
 	 * @param ubicacion the ubicacion to set
 	 */
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
+	public void setUbicacion(String[] ubicacion) {
+		this.latitud = ubicacion[0];
+		this.longitud = ubicacion[1];
 	}
 
 	/**
@@ -71,18 +86,18 @@ public class Estacion {
 	/**
 	 * @return the estado
 	 */
-	public String getEstado() {
+	public  EstadoEstacion getEstado() {
 		return estado;
 	}
 
 	/**
 	 * @param estado the estado to set
 	 */
-	public void setEstado(String estado) {
+	public void setEstado( EstadoEstacion estado) {
 		this.estado = estado;
 	}
 
-    public LinkedList<Bicicleta> getBicicletas() {
+    public List<Bicicleta> getBicicletas() {
 	    return   bicicletas;
 	}
 
@@ -101,11 +116,11 @@ public class Estacion {
      *
      */
     public Bicicleta retirarBicicleta(Usuario usuario) {
-       
-    	Bicicleta bicicleta = bicicletas.remove();
+
+    	Bicicleta bicicleta = bicicletas.remove(0);
     	usuario.agregartBicicleta(bicicleta);
     	return bicicleta;
-    
+
     }
 
     /**

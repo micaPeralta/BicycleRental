@@ -1,24 +1,33 @@
-package models;
+package entities;
 
+import javax.persistence.*;
 import java.util.*;
 
-/**
- * 
- */
+@Entity
 public class Denuncia {
 
+	 @Id @GeneratedValue( strategy = GenerationType.AUTO) 
+    private Long id;
+    private  String descripcion;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fecha;
+    @OneToOne(optional = false)
+    private Bicicleta bicicleta;
+    @OneToOne(optional = false)
+    private Usuario usuario;
+
     /**
-     * Default constructor
-     */
-    public Denuncia(String descripcion,Bicicleta bicicleta) {
-    	this.descripcion = descripcion;
-    	this.fecha = new Date();
-    	this.bicicleta = bicicleta;
+    * Default constructor
+    */
+    public Denuncia(){}
+
+    public Denuncia(String descripcion,Bicicleta bicicleta, Usuario usuario) {
+      this.descripcion = descripcion;
+      this.fecha = new Date();
+      this.bicicleta = bicicleta;
+      this.usuario = usuario;
     }
 
-    private  String descripcion;
-    private Date fecha;
-    private Bicicleta bicicleta;
 
 
 	/**
@@ -67,6 +76,6 @@ public class Denuncia {
 	public void setBicicleta(Bicicleta bicicleta) {
 		this.bicicleta = bicicleta;
 	}
-    
+
 
 }

@@ -1,27 +1,35 @@
-package models;
+package entities;
+
+import javax.persistence.*;
 import java.util.*;
 
 /**
  * Destinada para mantener un regstros de los retiros y las devoluciones de una bicicleta en una estacion
  */
+@Entity
 public class RegistroHistorial {
 
+	 @Id @GeneratedValue( strategy = GenerationType.AUTO) 
+    private Long idRegistroHistorial;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaHora;
+    private  String estado;
+    @ManyToOne
+    private Bicicleta bicicleta;
+    @OneToOne(optional = false)
+    private Estacion estacion;
+
     /**
-     * Default constructor
-     */
+    * Default constructor
+    */
+    public RegistroHistorial(){}
+
     public RegistroHistorial(String estado,Estacion estacion, Bicicleta bicicleta) {
-    	this.estado = estado;
-    	// this.fechaHora = Fecha y hora actual
+      this.estado = estado;
+      // this.fechaHora = Fecha y hora actual
       this.estacion = estacion;
       this.bicicleta = bicicleta;
     }
-
-
-    private Date fechaHora;
-    private  String estado;
-    private Bicicleta bicicleta;
-    private Estacion estacion;
-
 	/**
 	 * @return the fechaHora
 	 */
