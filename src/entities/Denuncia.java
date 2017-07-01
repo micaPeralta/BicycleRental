@@ -6,9 +6,11 @@ import java.util.*;
 @Entity
 public class Denuncia {
 
-	 @Id @GeneratedValue( strategy = GenerationType.AUTO) 
+	@Id @GeneratedValue( strategy = GenerationType.AUTO) 
     private Long id;
+	@Column(nullable = false)
     private  String descripcion;
+	@Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     @OneToOne(optional = false)

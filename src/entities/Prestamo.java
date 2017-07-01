@@ -7,19 +7,29 @@ import java.util.Date;
 public class Prestamo {
 	 @Id @GeneratedValue( strategy = GenerationType.AUTO) 
       private Long id;
+	 
+	  @Column(nullable = false)
       @Temporal(TemporalType.TIMESTAMP)
       private Date fecha;
+	  
+	  @Column(nullable = false)
       private String accion;
+	  
       @OneToOne(optional = false)
       private Estacion estacion;
+      
       @OneToOne(optional = false)
       private Usuario usuario;
 
+     
+      
       public Prestamo(){}
 
-      public Prestamo(Date fecha, String accion){
+      public Prestamo(Date fecha, String accion, Usuario usuario, Estacion estacion){
         this.accion = accion;
         this.fecha = fecha;
+        this.usuario = usuario;
+        this.estacion = estacion;
       }
 
       public Date getFecha(){

@@ -1,7 +1,8 @@
 package daos;
 
+
 import entities.Prestamo;
 
-public class PrestamoDAOImp extends GenericDAOImp<Prestamo>{
+public class PrestamoDAOImp extends GenericDAOImp<Prestamo> implements PrestamoDAO {
 
 }

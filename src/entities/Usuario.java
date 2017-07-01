@@ -1,12 +1,18 @@
 package entities;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.commons.lang3.RandomStringUtils;
+
+import entityListeners.UsuarioListener;
+
 import java.util.*;
 
-/**
- *
- */
+
 @Entity
+@EntityListeners(UsuarioListener.class)
+@XmlRootElement
 public class Usuario {
 	
     public enum Rol{
@@ -15,14 +21,17 @@ public class Usuario {
     @Id @GeneratedValue( strategy = GenerationType.AUTO) 
     private Long id;
     private Integer dni;
+    @Column(nullable = false)
     private String apellido;
+    @Column(nullable = false)
     private String nombre;
     private String domicilio;
     private Date fechaNacimiento;
     private String sexo;
-    @Temporal(TemporalType.DATE)
     private Date fechaInhabilitacion;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String clave;
     @Enumerated
     private Rol rol;
@@ -34,7 +43,17 @@ public class Usuario {
     * Default constructor
     */
     public Usuario(){}
-
+    
+    // Crea un usuario administrador
+    public Usuario(String nombre, String apellido, String email){
+    	this.nombre = nombre;
+    	this.apellido = apellido;
+    	this.email = email;
+        this.clave = RandomStringUtils.randomAlphabetic(10);
+    	this.rol = Rol.ADMIN;
+   }
+    
+    
     public Usuario(Integer dni,
     String apellido,
     String nombre,
@@ -42,7 +61,7 @@ public class Usuario {
     Date fechaNacimiento,
     String sexo,
     String email,
-    String clave,Rol rol) {
+    Rol rol) {
 
       this.dni = dni;
       this.apellido = apellido;
@@ -51,10 +70,19 @@ public class Usuario {
       this.fechaNacimiento = fechaNacimiento;
       this.sexo = sexo;
       this.email = email;
-      this.clave = clave;
+      this.clave = RandomStringUtils.randomAlphabetic(10);
       this.rol = rol;
       this.fechaInhabilitacion= null;
-    }
+  	    }
+    
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	/**
 	 * @return the dni
 	 */
@@ -194,6 +222,13 @@ public class Usuario {
 
 	public void eliminartBicicleta(Bicicleta bicicleta) {
 		this.bicicletas.remove(bicicleta);
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + ", domicilio="
+				+ domicilio + ", fechaNacimiento=" + fechaNacimiento + ", sexo=" + sexo + ", fechaInhabilitacion="
+				+ fechaInhabilitacion + ", email=" + email + ", clave=" + clave + ", rol=" + rol + "]";
 	}
 
 

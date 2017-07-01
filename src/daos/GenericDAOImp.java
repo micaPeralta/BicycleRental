@@ -1,4 +1,5 @@
 package daos;
+import daos.FactoryEM;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -16,17 +17,16 @@ public abstract  class GenericDAOImp<T> implements GenericDAO<T> {
 
 	public GenericDAOImp() {
 		Type t = getClass().getGenericSuperclass();
-		System.out.println("t ----->"+t);
 		ParameterizedType pt = (ParameterizedType) t;
-		type = (Class)pt.getActualTypeArguments()[0]; //obtener el tipo por reflexion
-		System.out.println("type-------------"+type);
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jaa2017");
+		type = (Class)pt.getActualTypeArguments()[0];
+		EntityManagerFactory emf = FactoryEM.getEMF();
 		this.entityManager=emf.createEntityManager();
 	}
 
 
 	@Override
-	public void remove(Object id) {
+	public void remove(Long id) {
+
 		EntityTransaction tx = this.entityManager.getTransaction();
 		tx.begin();
 		this.entityManager.remove( this.entityManager.getReference(type, id));
@@ -41,6 +41,7 @@ public abstract  class GenericDAOImp<T> implements GenericDAO<T> {
 		EntityTransaction tx = this.entityManager.getTransaction();
 		tx.begin();
 		this.entityManager.persist(t);
+		this.entityManager.flush();
 		tx.commit();
 	}
 
@@ -53,17 +54,18 @@ public abstract  class GenericDAOImp<T> implements GenericDAO<T> {
 		return null;
 	}
 
-	public T find(int id){
+	@Override
+	public T find(Long id){
 		EntityTransaction tx = this.entityManager.getTransaction();
-		tx.begin();
 		T resul = (T) this.entityManager.find(type, id);
-		tx.rollback();
 		return resul;
 	}
 
 	public List<T> list(String entidad) {
 		return this.entityManager.createQuery("select e from"+" "+entidad+" "+"e").getResultList();
 	}
+	
+	
 
 
 

@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface GenericDAO<T> {
 
-	public T find(int id );
+	public T find(Long id );
 
-	public void remove(T t);
+	public void remove(Long id);
 
 	public T update(T t);
 

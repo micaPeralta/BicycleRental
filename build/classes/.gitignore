@@ -1,6 +1,4 @@
-/daos/
-/entities/
 /misservlets/
+/resources/
 /tests/
-/META-INF/
-/services/
+/daos/

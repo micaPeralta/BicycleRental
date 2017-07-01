@@ -1,28 +1,31 @@
 package daos;
+
+import entities.*;
+
 public class FactoryDAO {
 
-	public static EstacionDAOImp getEstacionDAO(){
+	public static EstacionDAO getEstacionDAO(){
 		return new EstacionDAOImp();
 	}
 
-	public static BicicletaDAOImp getBicicletaDAO(){
+	public static BicicletaDAO getBicicletaDAO(){
 		return new BicicletaDAOImp();
 	}
-	
-	public static UsuarioDAOImp getUsuarioDAO(){
+
+	public static UsuarioDAO getUsuarioDAO(){
 		return new UsuarioDAOImp();
 	}
-	
-	public static RegistroHistorialDAOImp getRegistriHistorialDAO(){
+
+	public static RegistroHistorialDAO  getRegistroHistorialDAO(){
 		return new RegistroHistorialDAOImp();
 	}
-	
-	public static DenunciaDAOImp getDenunciaDAO(){
+
+	public static DenunciaDAO getDenunciaDAO(){
 		return new DenunciaDAOImp();
 	}
-	
-	public static PrestamoDAOImp getPrestamoDAO(){
+
+	public static PrestamoDAO getPrestamoDAO(){
 		return new PrestamoDAOImp();
 	}
-	
+
 }

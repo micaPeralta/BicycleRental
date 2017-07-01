@@ -9,14 +9,22 @@ public class Estacion {
     public enum EstadoEstacion{
       OPERATIVA, CERRADA, EN_CONTRUCCION
     }
-    @Id 
-    @GeneratedValue( strategy = GenerationType.AUTO) 
+    @Id
+    @GeneratedValue( strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(nullable = false)
     private String nombre;
+
+    @Column(nullable = false)
     private int capacidad;
+
+    @Column(nullable = false)
     @Enumerated
-    private EstadoEstacion estado;
-    @OneToMany(mappedBy="estacion")
+    private EstadoEstacion estado = EstadoEstacion.EN_CONTRUCCION;
+
+    @OneToMany(mappedBy="estacion",cascade=CascadeType.PERSIST)
+
     private List<Bicicleta> bicicletas;
     private String latitud;
     private String longitud;
@@ -36,6 +44,19 @@ public class Estacion {
       this.bicicletas = new LinkedList<Bicicleta>();
     }
 
+    /**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 
     /**
 	 * @return the nombre
@@ -104,11 +125,11 @@ public class Estacion {
 	/**
      * @param Bicicleta
      */
-    public void agregarbicicleta(Bicicleta bicicleta) {
+    public void agregarBicicleta(Bicicleta bicicleta) {
        bicicletas.add(bicicleta);
     }
 
-    public void eliminarbicicleta(Bicicleta bicicleta) {
+    public void eliminarBicicleta(Bicicleta bicicleta) {
         bicicletas.remove(bicicleta);
      }
 
@@ -128,7 +149,13 @@ public class Estacion {
      */
     public void estacionarBicicleta(Usuario usuario, Bicicleta bicicleta) {
         usuario.eliminartBicicleta(bicicleta);
-        this.agregarbicicleta(bicicleta);
+        this.agregarBicicleta(bicicleta);
     }
+
+	@Override
+	public String toString() {
+		return "Estacion [id=" + id + ", nombre=" + nombre + ", capacidad=" + capacidad + ", estado=" + estado
+				+ ", bicicletas="  + ", latitud=" + latitud + ", longitud=" + longitud + "]";
+	}
 
 }

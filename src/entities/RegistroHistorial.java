@@ -9,14 +9,20 @@ import java.util.*;
 @Entity
 public class RegistroHistorial {
 
-	 @Id @GeneratedValue( strategy = GenerationType.AUTO) 
+	@Id @GeneratedValue( strategy = GenerationType.AUTO) 
     private Long idRegistroHistorial;
+	
+	@Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaHora;
-    private  String estado;
-    @ManyToOne
+    
+	@Column(nullable = false)
+	private  String estado;
+    
+	@ManyToOne(optional = false)
     private Bicicleta bicicleta;
-    @OneToOne(optional = false)
+    
+	@OneToOne(optional = false)
     private Estacion estacion;
 
     /**

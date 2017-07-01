@@ -2,6 +2,6 @@ package daos;
 
 import entities.Denuncia;
 
-public class DenunciaDAOImp extends GenericDAOImp<Denuncia>{
+public class DenunciaDAOImp extends GenericDAOImp<Denuncia> implements DenunciaDAO{
 
 }

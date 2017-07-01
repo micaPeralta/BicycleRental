@@ -15,14 +15,17 @@ public class Bicicleta {
 
     @Id @GeneratedValue( strategy = GenerationType.AUTO) 
     private Long id;
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fechaIngreso;
+    @Column(nullable = false)
     @Enumerated
     private EstadoBicicleta estadoActual;
     private String ubicacionActual;
-    @ManyToOne
+ 
+    @ManyToOne(optional = false)
     private Estacion estacion;
-    @OneToMany(mappedBy="bicicleta")
+    @OneToMany(mappedBy="bicicleta",cascade=CascadeType.PERSIST)
     private Set<RegistroHistorial> historial;
 
     /**
@@ -127,6 +130,13 @@ public class Bicicleta {
   		this.estacion = estacion;
   	}
 
+	@Override
+	public String toString() {
+		return "Bicicleta [id=" + id + ", fechaIngreso=" + fechaIngreso + ", estadoActual=" + estadoActual
+				+ ", ubicacionActual=" + ubicacionActual + ", estacion=" + estacion + ", historial=" + historial + "]";
+	}
+  	
+  	
 
 
   }
