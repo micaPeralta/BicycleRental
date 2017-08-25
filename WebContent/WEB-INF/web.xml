@@ -9,21 +9,31 @@
     <welcome-file>defaul t.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
+  <filter>
+    <filter-name>CORS</filter-name>
+    <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+     <init-param>
+                <param-name>cors.supportedMethods</param-name>
+                <param-value>GET, POST, HEAD, PUT, DELETE, OPTIONS</param-value>
+       </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CORS</filter-name>
+    <servlet-name>RESTful Jersey CRUD Service</servlet-name>
+  </filter-mapping>
   <servlet>
-		<servlet-name>RESTful Jersey CRUD Service</servlet-name>
-		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-		<init-param>
-			<param-name>jersey.config.server.provider.packages</param-name>
-			<param-value>resources</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-   </servlet>
-   <servlet-mapping>
-		<servlet-name>RESTful Jersey CRUD Service</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
-   </servlet-mapping>
-
+    <servlet-name>RESTful Jersey CRUD Service</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>resources</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RESTful Jersey CRUD Service</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>Login</display-name>
@@ -34,7 +44,6 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>HomeUsr</display-name>
@@ -45,7 +54,6 @@
     <servlet-name>HomeUsr</servlet-name>
     <url-pattern>/HomeUsr</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>HomeAdmin</display-name>
@@ -56,7 +64,6 @@
     <servlet-name>HomeAdmin</servlet-name>
     <url-pattern>/HomeAdmin</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>Registrarse</display-name>
@@ -67,7 +74,6 @@
     <servlet-name>Registrarse</servlet-name>
     <url-pattern>/Registrarse</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>Usuarios</display-name>
@@ -108,4 +114,13 @@
     <servlet-name>EditarBicicleta</servlet-name>
     <url-pattern>/EditarBicicleta</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>CorsFilter</display-name>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/CorsFilter</url-pattern>
+  </filter-mapping>
 </web-app>

@@ -25,88 +25,88 @@ import org.apache.tomcat.jni.Error;
 import com.sun.research.ws.wadl.Request;
 
 import daos.GenericDAO;
-import entities.Usuario;
+import entities.Estacion;
 import daos.FactoryDAO;
 
-@Path("/usuarios")
-public class UsuarioResource {
-	
+@Path("/estaciones")
+public class EstacionResource {
+
 	@Context
 	UriInfo uriInfo;
 	@Context
 	Request request;
-	
-	GenericDAO<Usuario> usuarioDAO;
-	
-	
-	public UsuarioResource(){
-		usuarioDAO = FactoryDAO.getUsuarioDAO();
+
+	GenericDAO<Estacion> estacionDAO;
+
+
+	public EstacionResource(){
+		estacionDAO = FactoryDAO.getEstacionDAO();
 	}
-	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Usuario> getUsuarios(){
-		System.out.println(usuarioDAO.list("Usuario"));
-		return usuarioDAO.list("Usuario");
+	public List<Estacion> getEstacionEs(){
+		System.out.println(estacionDAO.list("Estacion"));
+		return estacionDAO.list("Estacion");
 	}
-	
-	
+
+
 	@Path("{id}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public  Usuario getUsuario(@PathParam("id") String id){
+	public  Estacion getEstacion(@PathParam("id") String id){
 		Long idl = new Long(id);
-		Usuario usuario = usuarioDAO.find(idl);
-		if(usuario ==null)
+		Estacion estacion = estacionDAO.find(idl);
+		if(estacion ==null)
             throw new NotFoundException("No such user.");
-		return usuario;
+		return estacion;
 	}
-	
-	
+
+
 	@Path("{id}")
 	@DELETE
-	public void deleteUsuario(@PathParam("id") String id) {
+	public void deleteEstacion(@PathParam("id") String id) {
 		Long idl = new Long(id);
-		Usuario u= usuarioDAO.find(idl);
+		Estacion u= estacionDAO.find(idl);
 		if (u == null){
-			throw new NotFoundException("No such user.");
+			throw new NotFoundException("No such estacion.");
 		}
-	    usuarioDAO.remove(idl);
-	   
+	    estacionDAO.remove(idl);
+
 	}
-	
-	
+
+
 	@Path("{id}")
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateUsuario(@PathParam("id") String id,Usuario usuario_mod){
-		
+	public Response updateEstacion(@PathParam("id") String id,Estacion estacion_mod){
+
 		Long idl = new Long(id);
-		Usuario usuario = usuarioDAO.find(idl);
-		if(usuario ==null)
-            throw new NotFoundException("No such user.");		
-		try { 
-			usuarioDAO.update(usuario_mod);	
+		Estacion estacion = estacionDAO.find(idl);
+		if(estacion ==null)
+            throw new NotFoundException("No such user.");
+		try {
+			estacionDAO.update(estacion_mod);
 		}
 		catch (Exception e ){
 			return Response.status(HttpServletResponse.SC_CONFLICT).build();
 		}
-		return Response.status(HttpServletResponse.SC_OK).entity(usuario_mod).build();
+		return Response.status(HttpServletResponse.SC_OK).entity(estacion_mod).build();
 	}
-	
+
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response  createUsuario(Usuario nuevoUsuario){
-		try { 
-			usuarioDAO.persist(nuevoUsuario);	
+	public Response  createEstacion(Estacion nuevaEstacion){
+		try {
+			estacionDAO.persist(nuevaEstacion);
 		}
 		catch (Exception e ){
 			return Response.status(HttpServletResponse.SC_CONFLICT).build();
 		}
 		UriBuilder builder = uriInfo.getAbsolutePathBuilder();
-		builder.path(Long.toString(nuevoUsuario.getId()));
+		builder.path(Long.toString(nuevaEstacion.getId()));
 		return Response.created(builder.build()).build();
 	}
 

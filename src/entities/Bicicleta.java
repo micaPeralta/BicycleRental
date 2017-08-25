@@ -1,6 +1,9 @@
 package entities;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.*;
 
 /**​
@@ -8,12 +11,12 @@ import java.util.*;
  */
 @Entity
 public class Bicicleta {
-    
+
 	public enum EstadoBicicleta{
         APTA,REPARACION,DESUSO,DENUNCIADA
     }
 
-    @Id @GeneratedValue( strategy = GenerationType.AUTO) 
+    @Id @GeneratedValue( strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
@@ -22,10 +25,13 @@ public class Bicicleta {
     @Enumerated
     private EstadoBicicleta estadoActual;
     private String ubicacionActual;
- 
+
     @ManyToOne(optional = false)
+    @JoinColumn(name="estacion_id")
+    @JsonIgnoreProperties({"capacidad","nombre","estado","ubicacion"})
     private Estacion estacion;
-    @OneToMany(mappedBy="bicicleta",cascade=CascadeType.PERSIST)
+
+    @OneToMany(mappedBy="bicicleta",  fetch=FetchType.LAZY )
     private Set<RegistroHistorial> historial;
 
     /**
@@ -135,8 +141,8 @@ public class Bicicleta {
 		return "Bicicleta [id=" + id + ", fechaIngreso=" + fechaIngreso + ", estadoActual=" + estadoActual
 				+ ", ubicacionActual=" + ubicacionActual + ", estacion=" + estacion + ", historial=" + historial + "]";
 	}
-  	
-  	
+
+
 
 
   }

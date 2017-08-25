@@ -1,4 +1,7 @@
+/daos/
+/entities/
+/entityListeners/
+/filters/
 /misservlets/
 /resources/
 /tests/
-/daos/

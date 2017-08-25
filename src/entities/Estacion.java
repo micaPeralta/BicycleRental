@@ -1,6 +1,9 @@
 package entities;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.*;
 
 @Entity
@@ -22,12 +25,15 @@ public class Estacion {
     @Column(nullable = false)
     @Enumerated
     private EstadoEstacion estado = EstadoEstacion.EN_CONTRUCCION;
-
-    @OneToMany(mappedBy="estacion",cascade=CascadeType.PERSIST)
-
-    private List<Bicicleta> bicicletas;
+    
     private String latitud;
     private String longitud;
+    
+    @OneToMany(cascade=CascadeType.PERSIST,mappedBy="estacion")
+    @JsonIgnore
+    private List<Bicicleta> bicicletas;
+
+    
 
     /**
     * Default constructor
